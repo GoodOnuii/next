@@ -16,14 +16,28 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 }
 
+if (process.env.NEXT_PUBLIC_APP_ENV === 'test') {
+  const { server } = await import('@/mocks/server')
+  server.listen()
+}
+
 const App = ({ Component, pageProps }: AppProps) => {
   const app = initializeApp(firebaseConfig)
+
+  const init = async () => {
+    const { worker } = await import('@/mocks/browser')
+    worker.start()
+  }
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_APP_ENV === 'test') init()
+  }, [])
 
   useEffect(() => {
     // const analytics = getAnalytics(app)
   }, [app])
-  
-  const apolloClient = useApollo(pageProps.initialApolloState);
+
+  const apolloClient = useApollo(pageProps.initialApolloState)
 
   return (
     <ApolloProvider client={apolloClient}>

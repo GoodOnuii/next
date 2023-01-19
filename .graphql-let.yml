@@ -1,8 +1,8 @@
 schema:
   - lib/**/*.graphql
-  - ${NEXT_PUBLIC_GRAPHQL_URI}:
-      headers:
-        authorization: ${TOKEN}
+  # - ${NEXT_PUBLIC_GRAPHQL_URI}:
+  #     headers:
+  #       authorization: ${TOKEN}
 documents:
   - lib/**/*.gql
 plugins:

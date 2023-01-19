@@ -7,6 +7,7 @@ import typeDefs from '@/lib/graphql/typeDefs'
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  allowBatchedHttpRequests: true,
 })
 
 export default startServerAndCreateNextHandler(server, {})
