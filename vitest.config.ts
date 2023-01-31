@@ -1,7 +1,7 @@
-import { fileURLToPath, URL } from 'url';
+import { fileURLToPath, URL } from 'url'
 
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [react()],
@@ -14,6 +14,10 @@ export default defineConfig({
     include: ['**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     environment: 'jsdom',
     globals: true,
-    setupFiles: './__tests__/setup.ts',
+    coverage: {
+      provider: 'c8',
+      reporter: ['text', 'json', 'html'],
+      reportsDirectory: './__tests__/unit/coverage',
+    },
   },
-});
+})
