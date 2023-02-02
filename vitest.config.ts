@@ -14,8 +14,9 @@ export default defineConfig({
     include: ['**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     environment: 'jsdom',
     globals: true,
+    setupFiles: '/setupTest.ts',
     coverage: {
-      provider: 'c8',
+      // provider = c8 by default
       reporter: ['text', 'json', 'html'],
       reportsDirectory: './__tests__/unit/coverage',
     },

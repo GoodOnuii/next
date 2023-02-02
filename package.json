@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage",
+    "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -51,6 +51,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@types/testing-library__jest-dom": "^5.14.5",
     "@vitejs/plugin-react": "^3.0.0",
     "@vitest/coverage-c8": "^0.28.3",
     "@vitest/ui": "^0.28.3",
