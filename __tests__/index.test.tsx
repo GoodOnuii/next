@@ -1,11 +1,12 @@
-import { render, screen } from '@testing-library/react'
-import Home from '../pages/index'
+import { getByRole, render, screen } from '@testing-library/react'
+import { describe } from 'vitest'
+import Home from '../pages'
 
 describe('Home', () => {
   it('renders a heading', () => {
-    render(<Home />)
+    const { container } = render(<Home />)
 
-    const heading = screen.getByRole('heading', {
+    const heading = getByRole(container, 'heading', {
       name: /welcome to next\.js!/i,
     })
 

@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+# /__tests__/
+/__tests__/unit/*
 
 # next.js
 /.next/
