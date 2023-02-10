@@ -1,4 +1,4 @@
-import { ApolloQueryResult, DocumentNode, QueryOptions, TypedDocumentNode } from '@apollo/client';
+import { ApolloQueryResult, DocumentNode, OperationVariables, QueryOptions, TypedDocumentNode } from '@apollo/client';
 
 import { initializeApollo } from '@/lib/gql/apollo';
 
@@ -10,7 +10,7 @@ const apolloClient = initializeApollo();
  * @example
  * createLazyQuery(Document, callback)
  */
-export const createLazyQuery = <T, K>(
+export const createLazyQuery = <T, K extends OperationVariables>(
   Document: DocumentNode | TypedDocumentNode<T, K>,
   cb?: (result: ApolloQueryResult<T>) => void,
 ) => {
