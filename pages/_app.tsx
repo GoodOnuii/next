@@ -1,11 +1,9 @@
-import '../styles/globals.css'
-import { ApolloProvider } from '@apollo/client'
-import { getAnalytics } from 'firebase/analytics'
-import { initializeApp } from 'firebase/app'
-import type { AppProps } from 'next/app'
-import { useEffect } from 'react'
-
-import { useApollo } from '@/lib/gql/apollo'
+import '../styles/globals.css';
+import { ApolloProvider } from '@apollo/client';
+import { initializeApp } from 'firebase/app';
+import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
+import { useApollo } from '@/lib/gql/apollo';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -15,22 +13,22 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_APP_ID,
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
-}
+};
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const app = initializeApp(firebaseConfig)
+  const app = initializeApp(firebaseConfig);
 
   useEffect(() => {
     // const analytics = getAnalytics(app)
-  }, [app])
-  
+  }, [app]);
+
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
     <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
     </ApolloProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

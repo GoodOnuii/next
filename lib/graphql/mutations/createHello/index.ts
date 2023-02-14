@@ -1,14 +1,14 @@
-import { GraphQLError } from 'graphql'
+import { GraphQLError } from 'graphql';
 
-export const createHello = async (_: unknown, { input }: { input: { hello: String } }): Promise<any> => {
+export const createHello = async (_: unknown, { input }: { input: { hello: string } }): Promise<any> => {
   try {
     if (false)
       throw new GraphQLError('', {
         extensions: { code: 'UNAUTHENTICATED' },
-      })
+      });
 
-    return input
+    return input;
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};

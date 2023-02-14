@@ -1,10 +1,10 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client/core";
-import { BatchHttpLink } from "@apollo/client/link/batch-http";
-import { from } from "@apollo/client/link/core";
-import { onError } from "@apollo/client/link/error";
-import fetch from "cross-fetch";
-import merge from "deepmerge";
-import { useMemo } from "react";
+import { ApolloClient, InMemoryCache } from '@apollo/client/core';
+import { BatchHttpLink } from '@apollo/client/link/batch-http';
+import { from } from '@apollo/client/link/core';
+import { onError } from '@apollo/client/link/error';
+import fetch from 'cross-fetch';
+import merge from 'deepmerge';
+import { useMemo } from 'react';
 
 const httpLink = new BatchHttpLink({
   uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
@@ -13,22 +13,20 @@ const httpLink = new BatchHttpLink({
   fetch,
 });
 
-const errorLink = onError(
-  ({ graphQLErrors, networkError, response, operation, forward }) => {
-    if (graphQLErrors) {
-      for (const { extensions } of graphQLErrors) {
-        switch (extensions.code) {
-          case "401": {
-          }
+const errorLink = onError(({ graphQLErrors, networkError, response, operation, forward }) => {
+  if (graphQLErrors) {
+    for (const { extensions } of graphQLErrors) {
+      switch (extensions.code) {
+        case '401': {
         }
       }
     }
   }
-);
+});
 
 const createApolloClient = () => {
   return new ApolloClient({
-    ssrMode: typeof window === "undefined",
+    ssrMode: typeof window === 'undefined',
     link: from([errorLink, httpLink]),
     cache: new InMemoryCache(),
   });
@@ -49,7 +47,7 @@ export const initializeApollo = (initialState = null): Apollo => {
     _apolloClient.cache.restore(data);
   }
 
-  if (typeof window === "undefined") return _apolloClient;
+  if (typeof window === 'undefined') return _apolloClient;
 
   if (apolloClient !== null) apolloClient = _apolloClient;
   return _apolloClient;

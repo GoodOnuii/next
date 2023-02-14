@@ -1,8 +1,8 @@
-import { Schema } from 'mongoose'
+import { Schema } from 'mongoose';
 
-import { dbConnect } from '@/lib/dbConnect'
+import { dbConnect } from '@/lib/dbConnect';
 
-const conn = await dbConnect()
+const conn = await dbConnect();
 
 const Hello = new Schema(
   {
@@ -14,7 +14,7 @@ const Hello = new Schema(
   {
     timestamps: true,
     versionKey: false,
-  }
-)
+  },
+);
 
-export default conn.model('hello', Hello)
+export default conn.model('hello', Hello);
