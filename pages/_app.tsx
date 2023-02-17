@@ -1,10 +1,11 @@
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { ApolloProvider } from '@apollo/client'
 import { getAnalytics } from 'firebase/analytics'
 import { initializeApp } from 'firebase/app'
-import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '@/lib/gql/apollo'
+import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
+
+import { useApollo } from '@/lib/gql/apollo'
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,

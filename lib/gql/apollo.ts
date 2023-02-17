@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
+import { BatchHttpLink } from "@apollo/client/link/batch-http";
 import { from } from "@apollo/client/link/core";
 import { onError } from "@apollo/client/link/error";
-import { BatchHttpLink } from "@apollo/client/link/batch-http";
 import fetch from "cross-fetch";
 import merge from "deepmerge";
 import { useMemo } from "react";
