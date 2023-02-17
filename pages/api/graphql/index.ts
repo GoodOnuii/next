@@ -1,9 +1,9 @@
 import { ApolloServer } from '@apollo/server'
 import { startServerAndCreateNextHandler } from '@as-integrations/next'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 import resolvers from '@/lib/graphql/resolvers'
 import typeDefs from '@/lib/graphql/typeDefs'
-import { NextApiRequest, NextApiResponse } from 'next'
 
 type Context = { req: NextApiRequest; res: NextApiResponse }
 
