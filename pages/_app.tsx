@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { getAnalytics } from 'firebase/analytics'
 import { initializeApp } from 'firebase/app'
 import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '@/lib/gql/apollo'
+import { useApollo } from '@/graphql/apollo'
 import { useEffect } from 'react'
 
 const firebaseConfig = {

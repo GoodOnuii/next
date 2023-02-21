@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { getCssText } from '@/lib/stitches.config'
+import { getCssText } from '@/styles/stitches.config'
 
 class _Document extends Document {
   render() {
