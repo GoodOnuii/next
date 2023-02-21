@@ -1,21 +1,14 @@
 {
-  // "parser": "@typescript-eslint/parser",
-  "extends":["@goodonuii/eslint-config-web"]
-//   "plugins": ["prettier", "@typescript-eslint", "unused-imports"],
-//   "parserOptions": {
-//     "project": "./tsconfig.json"
-//   },
-//   "rules": {
-//     "import/order": [
-//       "error",
-//       {
-//         "newlines-between": "always",
-//         "alphabetize": {
-//           "order": "asc",
-//           "caseInsensitive": false
-//         }
-//       }
-//     ],
-//     "unused-imports/no-unused-imports": "warn"
-//   }
+  "extends": ["@seoltab/eslint-config-web"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": [
+    ".next/*",
+    ".husky/*"
+  ],
+  "plugins": ["unused-imports"],
+  "rules": {
+    "unused-imports/no-unused-imports": "warn"
+  }
 }
