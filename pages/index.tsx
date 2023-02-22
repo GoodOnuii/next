@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '@/styles/Home.module.css'
 
 import { useHelloQuery } from '@/graphql/generated'
+import styles from '@/styles/Home.module.css'
+
 
 export default function Home() {
   const { data } = useHelloQuery({ variables: { input: { hello: 'Next.js!' } } })

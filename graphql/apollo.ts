@@ -1,21 +1,21 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client/core'
+import { BatchHttpLink } from '@apollo/client/link/batch-http'
 import { from } from '@apollo/client/link/core'
 import { onError } from '@apollo/client/link/error'
-import { BatchHttpLink } from '@apollo/client/link/batch-http'
 import fetch from 'cross-fetch'
 import merge from 'deepmerge'
 import { useMemo } from 'react'
 
 const batchHttpLink = new BatchHttpLink({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
-  batchMax: 5,
   batchInterval: 20,
+  batchMax: 5,
   fetch,
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
 })
 
 const httpLink = new HttpLink({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
   fetch,
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
 })
 
 const errorLink = onError(({ graphQLErrors, networkError, response, operation, forward }) => {
@@ -32,15 +32,15 @@ const errorLink = onError(({ graphQLErrors, networkError, response, operation, f
 const createApolloClient = () => {
   if (process.env.NEXT_PUBLIC_APP_ENV === 'test')
     return new ApolloClient({
-      ssrMode: typeof window === 'undefined',
-      link: from([errorLink, httpLink]),
       cache: new InMemoryCache(),
+      link: from([errorLink, httpLink]),
+      ssrMode: typeof window === 'undefined',
     })
 
   return new ApolloClient({
-    ssrMode: typeof window === 'undefined',
-    link: from([errorLink, batchHttpLink]),
     cache: new InMemoryCache(),
+    link: from([errorLink, batchHttpLink]),
+    ssrMode: typeof window === 'undefined',
   })
 }
 
