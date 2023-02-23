@@ -1,6 +1,5 @@
-#Next
-
----
+# Next
+<br/>
 
 MFA (Micro Frontend Architecture) 를 착안하여 안정성 있고 지속 가능한 코드 베이스를 유지하는 데에 목적을 둔 template repository 입니다. Next repo 와 프론트엔드 챕터 내에서 사용되는 레포지토리 간 구조는 아래 이미지를 참고해 주세요.
 <img src="https://asset.seoltab.com/f1a90f1b022742afbeebe2c528ff597b.png"/>
@@ -17,9 +16,11 @@ MFA (Micro Frontend Architecture) 를 착안하여 안정성 있고 지속 가�
 - [Contribution](#contribution)
 
 <br/>
-##Stacks
-***
+
+## Stacks <br/>
+
 사용 중인 스택과 버전을 확인하세요. _<span>(last update 23-02-15)</span> <br/>_
+
 
 |       setting       |        name        |   version   |                                                       reference(optional)                                                       |
 | :-----------------: | :----------------: | :---------: | :-----------------------------------------------------------------------------------------------------------------------------: |
@@ -36,15 +37,17 @@ MFA (Micro Frontend Architecture) 를 착안하여 안정성 있고 지속 가�
 
 <br/>
 
-##Documentation
+## Documentation <br/>
 
----
 
 Next repo 는 template repository 의 기능의 일환으로 <span style="font-style: italic">~.seoltab.com</span> 프로젝트의 초기 세팅을 돕습니다. 뿐만 아니라 versioning, convention 등의 공통 변경 사항을 각각의 레포에 반영하기 위한 토대를 제공합니다.
-####How to make a new repository with Next Repo
+####How to make a new repository with Next Repo <br />
 (TBU)
 <br/>
-####How to rebase next repo to `~seoltab.com` project
+
+
+#### How to rebase next repo to `~seoltab.com` project <br/>
+
 
 1. 레포 내 remote 브랜치로 next repo 를 추가합니다.
 
@@ -83,10 +86,12 @@ git remote rm next
 <br/>
 
 ### Additional common functions(TBU)
+
 <br/>
 <br/>
 
-##Contribution
+## Contribution <br />
+
 아래 케이스에 해당이 된다면 <a href="https://github.com/GoodOnuii/next/issues">이슈를 등록해 주세요.</a> (템플릿은 곧 업데이트 될 예정입니다.) 이슈를 등록할 때, 각각의 사안에 알맞는 라벨을 등록해 주세요. <br/>
 
 - 버그 리포트 <button style="color: #d73a4a">bug</button>
