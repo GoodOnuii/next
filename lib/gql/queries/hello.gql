@@ -1,5 +1,0 @@
-query hello($input: HelloInput!) {
-  hello(input: $input) {
-    hello
-  }
-}
