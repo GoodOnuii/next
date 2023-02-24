@@ -1,0 +1,5 @@
+mutation createHello($input: CreateHelloInput!) {
+  createHello(input: $input) {
+    hello
+  }
+}

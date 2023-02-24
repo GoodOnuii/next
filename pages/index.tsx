@@ -1,10 +1,14 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import styles from '@/styles/Home.module.css';
+import { useHelloQuery } from '@/graphql/generated'
+import styles from '@/styles/Home.module.css'
+
 
 export default function Home() {
+  const { data } = useHelloQuery({ variables: { input: { hello: 'Next.js!' } } })
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +19,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">{data?.hello.hello}</a>
         </h1>
 
         <p className={styles.description}>
@@ -68,5 +72,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  );
+  )
 }

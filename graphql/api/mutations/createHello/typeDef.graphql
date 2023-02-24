@@ -1,0 +1,14 @@
+type Mutation {
+  "Hello"
+  createHello(input: CreateHelloInput!): CreateHello!
+}
+
+input CreateHelloInput {
+  "Hello"
+  hello: String!
+}
+
+type CreateHello {
+  "Hello"
+  hello: String!
+}

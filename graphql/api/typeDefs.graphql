@@ -1,0 +1,5 @@
+scalar DateTime
+
+type Mutation
+
+type Query

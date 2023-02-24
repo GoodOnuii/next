@@ -1,11 +1,11 @@
-import { isNonNullable } from '@/utils/isNonNullable';
+import { isNonNullable } from '@/utils/isNonNullable'
 
 describe('isNonNullable util', () => {
-  test('', async () => {
-    const nullableArray = [null, 'test', null];
+  test('expect nonNullableArray toStrictEqual', async () => {
+    const nullableArray = [null, 'test', null]
 
-    const nonNullableArray = nullableArray.filter(isNonNullable);
+    const nonNullableArray = nullableArray.filter(isNonNullable)
 
-    expect(nonNullableArray).toStrictEqual(['test']);
-  });
-});
+    expect(nonNullableArray).toStrictEqual(['test'])
+  })
+})

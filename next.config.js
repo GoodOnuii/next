@@ -6,15 +6,9 @@ const nextConfig = {
     config.experiments.topLevelAwait = true
 
     config.module.rules.push({
+      exclude: /node_modules/,
       test: /\.graphql$/,
-      exclude: /node_modules/,
       use: [options.defaultLoaders.babel, { loader: 'graphql-tag/loader' }],
-    })
-
-    config.module.rules.push({
-      test: /\.gql$/,
-      exclude: /node_modules/,
-      use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
     })
 
     return config

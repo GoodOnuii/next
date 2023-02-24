@@ -1,0 +1,14 @@
+type Query {
+  "Hello"
+  hello(input: HelloInput!): Hello!
+}
+
+input HelloInput {
+  "Hello"
+  hello: String!
+}
+
+type Hello {
+  "Hello"
+  hello: String!
+}
