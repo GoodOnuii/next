@@ -1,10 +1,16 @@
-import { fileURLToPath, URL } from 'url'
+import { fileURLToPath, URL } from 'url';
 
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vitest/config'
+import graphql from '@rollup/plugin-graphql';
+import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    graphql({
+      exclude: ['**/*.gql'],
+    }),
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./', import.meta.url)),
@@ -21,4 +27,4 @@ export default defineConfig({
       reportsDirectory: './__tests__/unit/coverage',
     },
   },
-})
+});

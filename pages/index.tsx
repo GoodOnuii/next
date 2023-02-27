@@ -2,9 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { HelloDocument, useHelloQuery } from '@/graphql/generated';
 import styles from '@/styles/Home.module.css';
+import { initializeApollo } from '@/graphql/apollo';
+import { GetServerSideProps } from 'next';
 
 export default function Home() {
+  const { data } = useHelloQuery({ variables: { input: { hello: 'Next.js!' } } });
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +20,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">{data?.hello.hello}</a>
         </h1>
 
         <p className={styles.description}>
@@ -70,3 +75,28 @@ export default function Home() {
     </div>
   );
 }
+
+const apolloClient = initializeApollo();
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  try {
+    const {
+      data: { hello },
+    } = await apolloClient.query({
+      query: HelloDocument,
+      variables: {
+        input: {
+          hello: 'Next.js!',
+        },
+      },
+    });
+
+    return {
+      props: { hello },
+    };
+  } catch (err) {
+    console.error(err);
+
+    return { notFound: true };
+  }
+};

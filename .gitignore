@@ -7,7 +7,6 @@
 
 # testing
 /coverage
-# /__tests__/
 /__tests__/unit/*
 
 # next.js
@@ -37,8 +36,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# graphql-let
-.cache
-*.gql.d.ts
-__generated__
-__snapshots__
+# graphql
+/graphql/generated.ts

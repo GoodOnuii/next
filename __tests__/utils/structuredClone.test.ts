@@ -1,8 +1,7 @@
 import { clone } from '@/utils/structuredClone'
 
-//
 describe('structuredClone util', () => {
-  test('', async () => {
+  test('expect cloneObject toStrictEqual', async () => {
     const object = { test: null }
 
     const newObject = clone(object)

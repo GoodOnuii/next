@@ -1,15 +1,13 @@
-import { ApolloServer } from '@apollo/server';
-import { startServerAndCreateNextHandler } from '@as-integrations/next';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { ApolloServer } from '@apollo/server'
+import { startServerAndCreateNextHandler } from '@as-integrations/next'
 
-import resolvers from '@/lib/graphql/resolvers';
-import typeDefs from '@/lib/graphql/typeDefs';
+import resolvers from '@/graphql/api/resolvers'
+import typeDefs from '@/graphql/api/typeDefs'
 
-type Context = { req: NextApiRequest; res: NextApiResponse };
-
-const server = new ApolloServer<Context>({
-  typeDefs,
+const server = new ApolloServer({
+  allowBatchedHttpRequests: true,
   resolvers,
-});
+  typeDefs,
+})
 
-export default startServerAndCreateNextHandler<Context>(server, { context: async (req, res) => ({ req, res }) });
+export default startServerAndCreateNextHandler(server, {})
