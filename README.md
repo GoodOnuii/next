@@ -1,7 +1,7 @@
 # Next
 <br/>
 
-MFA (Micro Frontend Architecture) 를 착안하여 안정성 있고 지속 가능한 코드 베이스를 유지하는 데에 목적을 둔 template repository 입니다. Next repo 와 프론트엔드 챕터 내에서 사용되는 레포지토리 간 구조는 아래 이미지를 참고해 주세요.
+MFA (Micro Frontend Architecture) 를 착안하여 안정성 있고 지속 가능한 코드 베이스를 유지하는 데에 목적을 둔 template repository 입니다. Next repo 와 프론트엔드 챕터 내에서 사용되는 레포지토리 간 구조는 아래 이미지를 참고해 주세용~.
 <img src="https://asset.seoltab.com/f1a90f1b022742afbeebe2c528ff597b.png"/>
 <br/>
 
