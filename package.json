@@ -11,7 +11,8 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "test:e2e": "playwright test",
-    "graphql:codegen": "graphql-codegen -r dotenv/config"
+    "graphql:codegen": "graphql-codegen -r dotenv/config",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
@@ -32,6 +33,8 @@
     "zustand": "^4.1.5"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@graphql-codegen/cli": "^3.2.0",
     "@graphql-codegen/import-types-preset": "^2.2.6",
     "@graphql-codegen/typed-document-node": "^3.0.1",
@@ -52,6 +55,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.34.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.3",
     "jsdom": "^20.0.3",
     "msw": "^0.49.3",
     "prettier": "^2.8.4",
