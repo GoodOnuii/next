@@ -1,10 +1,10 @@
-import '../styles/globals.css'
-import { ApolloProvider } from '@apollo/client'
-import { initializeApp } from 'firebase/app'
-import type { AppProps } from 'next/app'
-import { useEffect } from 'react'
+import '../styles/globals.css';
+import { ApolloProvider } from '@apollo/client';
+import { initializeApp } from 'firebase/app';
+import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
 
-import { useApollo } from '@/graphql/apollo'
+import { useApollo } from '@/graphql/apollo';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -14,36 +14,36 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
   projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
   storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-}
+};
 
 if (process.env.NEXT_PUBLIC_APP_ENV === 'test') {
-  const { server } = await import('@/mocks/server')
-  server.listen()
+  const { server } = await import('@/mocks/server');
+  server.listen();
 }
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const app = initializeApp(firebaseConfig)
+  const app = initializeApp(firebaseConfig);
 
   const init = async () => {
-    const { worker } = await import('@/mocks/browser')
-    worker.start()
-  }
+    const { worker } = await import('@/mocks/browser');
+    worker.start();
+  };
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_APP_ENV === 'test') init()
-  }, [])
+    if (process.env.NEXT_PUBLIC_APP_ENV === 'test') init();
+  }, []);
 
   useEffect(() => {
     // const analytics = getAnalytics(app)
-  }, [app])
+  }, [app]);
 
-  const apolloClient = useApollo(pageProps.initialApolloState)
+  const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
     <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
     </ApolloProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
