@@ -25,6 +25,7 @@
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.20.1",
     "graphql-tag": "^2.12.6",
+    "lint-staged": "^13.1.2",
     "mongoose": "^6.10.0",
     "next": "^13.1.6",
     "react": "18.2.0",
@@ -66,5 +67,11 @@
   },
   "engines": {
     "node": "18"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --config ./.prettierrc --write -u"
+    ]
   }
 }
